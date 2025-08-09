@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InovaSys</title>
+    <meta name="description" content="Especialistas em sistemas PDV com mais de 8 anos de experiência. Soluções completas e personalizadas para revolucionar a gestão do seu negócio.">
+    <meta property="og:title" content="TechPOS - Sistemas de PDV Inovadores">
+    <meta property="og:description" content="Revolucione seu ponto de venda com sistemas PDV modernos e inteligentes. Tecnologia de ponta para empresas que buscam inovação e eficiência.">
+    <meta property="og:type" content="website">
+    <!--GAMBIARRA INICIO-->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+   <script>
+    (function () {
+        emailjs.init("eCu-QIZOSPUO2cDCF");
+    })();
+    function showToast(message, isSuccess = true) {
+        const toast = document.createElement('div');
+        toast.style.position = 'fixed';
+        toast.style.top = '20px';
+        toast.style.right = '20px';
+        toast.style.padding = '15px 25px';
+        toast.style.borderRadius = '5px';
+        toast.style.color = 'white';
+        toast.style.backgroundColor = isSuccess ? '#000' : '#f44336';
+        toast.style.zIndex = '9999';
+        toast.style.fontFamily = 'Arial';
+        toast.innerText = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 5000);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!form.checkValidity()) {
+                    showToast('Por favor, preencha todos os campos obrigatórios.', false);
+                    return;
+                }
+                emailjs.sendForm('service_nq6jusj', 'template_zn153dd', this)
+                    .then(() => {
+                        showToast('Mensagem enviada com sucesso!', true);
+                        form.reset();
+                    })
+                    .catch((error) => {
+                        console.error('Erro ao enviar:', error);
+                        showToast('Erro ao enviar a mensagem. Tente novamente.', false);
+                    });
+            });
+        } else {
+            console.warn("Formulário com ID 'contactForm' não encontrado.");
+        }
+    });
+</script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Font Awesome --> <!--os não e original-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  rel="stylesheet">
+<!-- EmailJS Script -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> 
+<!-- Toast de notificação -->
+<div id="toast" class="toast">
+    <div class="toast-content">
+        <i class="toast-icon fas fa-check-circle"></i>
+        <div class="toast-message">
+            <div class="toast-title">Status</div>
+            <div class="toast-description">Mensagem padrão</div>
+        </div>
+    </div>
+</div>
+<script>
+    // Inicializa o EmailJS
+    (function () {
+        emailjs.init("eCu-QIZOSPUO2cDCF"); // Substitua por sua chave pública
+    })();
+
+    // Função para mostrar notificações
+    function showToast(message, isSuccess = true) {
+        const toast = document.getElementById('toast');
+        if (!toast) return;
+
+        toast.querySelector('.toast-description').textContent = message;
+        toast.classList.remove('success', 'error');
+        toast.classList.add(isSuccess ? 'success' : 'error');
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 5000);
+    }
+    // Lida com o envio do formulário
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+        if (!form) {
+            console.error("Formulário não encontrado.");
+            return;
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Valida campos obrigatórios
+            if (!form.checkValidity()) {
+                showToast("Por favor, preencha todos os campos obrigatórios.", false);
+                return;
+            }
+
+            // Envia o formulário via EmailJS
+            emailjs.sendForm('service_nq6jusj', 'template_zn153dd', form)
+                .then(() => {
+                    showToast("Mensagem enviada com sucesso!", true);
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.error("Erro ao enviar:", error);
+                    showToast("Erro ao enviar mensagem. Tente novamente.", false);
+                });
+        });
+    });
+</script>
+<!--GAMBIARRA FIM-->
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="nav-logo">
+    <img src="img/logo.png" alt="Logo InovaSys" class="logo-image">
+</div>
+<!--div class="nav-menu" id="nav-menu">  CODIGO DUPLOENVIODUPLO-->
+                
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#inicio" class="nav-link">Início</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#servicos" class="nav-link">Serviços</a>
+                 <!--   <a href="#portfolio" class="nav-link">Portfolio</a> -->
+                    <a href="#equipe" class="nav-link">Equipe</a>
+                    <a href="#contato" class="nav-link nav-cta">Contatos</a>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title animate-slide-up"> <!--FUI ALTERADO H1 PARA H2-->
+                        <br>
+                        Inovando seu negócio. <span class="text-highlight"> Automatizando seu sucesso.</span>
+                    </h2>
+                    <p class="hero-subtitle animate-slide-up delay-1">
+                       Transforme seu negócio com a Inovasys Automação Comercial. Nossa empresa é líder em soluções de automação
+                        para empresas, oferecendo sistemas personalizados que otimizam processos, aumentam a eficiência 
+                        e impulsionam o crescimento.
+                    </p>
+                    <div class="hero-buttons animate-slide-up delay-2">
+                        <a href="#contato" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Solicite uma Demonstração
+                        </a>
+                        <a href="#servicos" class="btn btn-outline">
+                            <i class="fas fa-info-circle"></i>
+                            Conheça Nossos Serviços
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image animate-slide-up delay-3">
+                    <img src="img/menu.jpeg" 
+                         alt="Sistema PDV moderno em ambiente de varejo" class="floating-image">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+              <!--  <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Clientes Ativos</div>
+                </div> -->
+                <div class="stat-item">
+                    <div class="stat-number" data-count="1">0</div>
+                    <div class="stat-suffix"></div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="9">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Projetos Entregues</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-suffix"></div>
+                    <div class="stat-label">Suporte Técnico</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">
+                        Inovação e Tecnologia em <span class="text-primary">Cada Solução.</span>
+                    </h2>
+                    <p class="about-description">
+                       Na era digital, seu negócio precisa de mais do que um sistema precisa de uma solução inteligente. Desenvolvemos sistemas PDV, gestão empresarial e financeiro com tecnologia robusta, fácil de usar e pronta para crescer com você.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Sistemas personalizados para cada negócio.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span>Segurança e confiabilidade garantidas.</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <span>Suporte técnico especializado.</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.link/d0o226" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>
+                        Fale Conosco
+                    </a>
+                </div>
+                <div class="about-images">
+                    <div class="image-grid">
+                        <img src="img/img1.jpeg" 
+                             alt="Equipe profissional trabalhando com soluções tecnológicas" class="grid-image">
+                        <img src="img/img2.jpeg" 
+                             alt="Escritório moderno com displays de inovação digital" class="grid-image offset-top">
+                        <img src="img/img3.jpeg" 
+                             alt="Representante de atendimento ao cliente ajudando clientes" class="grid-image offset-bottom">
+                        <img src="img/img4.jpeg" 
+                             alt="Interface de dashboard de soluções tecnológicas" class="grid-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Nossos <span class="text-primary">Serviços</span>
+                </h2>
+                <p class="section-subtitle">
+                    Oferecemos soluções completas em sistemas PDV, desde desenvolvimento personalizado até suporte técnico especializado.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="service-title">Sistema PDV Completo</h3>
+                    <p class="service-description">
+                        Solução completa para gestão de vendas, estoque, clientes e relatórios financeiros 
+                        integrados em uma única plataforma.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Controle de estoque</li>
+                        <li><i class="fas fa-check"></i> Gestão de clientes</li>
+                        <li><i class="fas fa-check"></i> Relatórios detalhados</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">PDV Mobile</h3>
+                    <p class="service-description">
+                        Sistema PDV adaptado para dispositivos móveis,
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Relatório de Vendas</li>
+                        <li><i class="fas fa-check"></i> Sincronização automática</li>
+                        <li><i class="fas fa-check"></i> Interface otimizada</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">PDV na Nuvem</h3>
+                    <p class="service-description">
+                        Sistema baseado em nuvem com acesso remoto, backup automático e atualizações 
+                        constantes sem interrupção do serviço.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Acesso remoto</li>
+                        <li><i class="fas fa-check"></i> Backup automático</li>
+                        <li><i class="fas fa-check"></i> Atualizações grátis</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="service-title">Personalização</h3>
+                    <p class="service-description">
+                        Adaptação completa do sistema às necessidades específicas do seu negócio, 
+                        com funcionalidades customizadas.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Módulos específicos</li>
+                        <li><i class="fas fa-check"></i> Integração com APIs</li>
+                        <li><i class="fas fa-check"></i> Layout personalizado</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Suporte Técnico</h3>
+                    <p class="service-description">
+                        Suporte técnico especializado com equipe qualificada para resolver 
+                        qualquer questão rapidamente.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i>Suporte técnico especializado</li>
+                        <li><i class="fas fa-check"></i> Equipe especializada</li>
+                        <li><i class="fas fa-check"></i> Resposta rápida</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Treinamento</h3>
+                    <p class="service-description">
+                        Treinamento completo da equipe para utilização otimizada do sistema, 
+                        garantindo máximo aproveitamento das funcionalidades.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Treinamento presencial</li>
+                        <li><i class="fas fa-check"></i> Material didático</li>
+                        <li><i class="fas fa-check"></i> Certificação</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Soluções Inteligentes <span class="text-primary">para o Seu Negócio</span>
+                </h2>
+                <p class="section-subtitle">
+                    Desenvolvemos sistemas comerciais sob medida para automatizar processos, aumentar a 
+                    eficiência e facilitar a gestão do seu negócio. Com tecnologia personalizada, você 
+                    tem mais controle, agilidade e resultados.
+                </p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300" 
+                             alt="Ambiente de varejo moderno com sistemas PDV avançados">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Varejo</h3>
+                        <p class="portfolio-description">
+                            Sistema PDV completo para rede de lojas com gestão de estoque integrada.
+                        </p>
+                       <!-- <div class="portfolio-link">
+                            <span>Ver detalhes</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300" 
+                             alt="Sistema PDV para restaurante com interface moderna">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Restaurantes</h3>
+                        <p class="portfolio-description">
+                            PDV especializado para restaurantes com controle de comandas é gestão.
+                        </p>
+                      <!--  <div class="portfolio-link">
+                            <span>Ver detalhes</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>  -->
+                    </div>
+                </div>
+               
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1601599561213-832382fd07ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300" 
+                             alt="Sistema de checkout de supermercado com leitura de código de barras">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Supermercados</h3>
+                        <p class="portfolio-description">
+                            PDV robusto para supermercados com múltiplos checkouts e gestão centralizada.
+                        </p>
+                    <!--    <div class="portfolio-link">
+                            <span>Ver detalhes</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>  -->
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipe" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Nossa <span class="text-primary">Equipe</span>
+                </h2>
+                <p class="section-subtitle">
+                    Profissionais altamente qualificados e experientes, dedicados a entregar as melhores soluções em Sistemas.
+                </p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="img/alisson.png" 
+                             alt="Foto profissional do líder da equipe de tecnologia">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Alisson Laurindo</h3>
+                        <p class="team-position">CEO / Comercial</p>
+                        <p class="team-description">
+                            Formação: Ciências Contábeis, Pós-graduação em Contabilidade Pública e MBA em Direito Tributário. Acadêmico Direito..
+                        </p> 
+                    </div>
+                </div>
+               
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="img/fabricio.jpg" 
+                             alt="Foto profissional do desenvolvedor de software">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Fabricio Araujo</h3>
+                        <p class="team-position">Suporte Técnico / Desenvolvedor Full-Stack</p>
+                       <p class="team-description">
+                             Formação:Engenharia da Computação, Acadêmico em NBA Arquitetura de Software. 
+                        </p> 
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+   <!-- <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    O que nossos <span class="text-primary">Clientes</span> dizem
+                </h2>
+                <p class="section-subtitle">
+                    Depoimentos de empresas que confiam em nossas soluções PDV para gerenciar seus negócios.
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "O sistema revolucionou nossa gestão. Antes levávamos horas para fechar o caixa, 
+                        agora é tudo automático e em tempo real."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                             alt="Foto profissional do proprietário de negócio">
+                        <div class="author-info">
+                            <div class="author-name">João Martins</div>
+                            <div class="author-position">Dono da Loja Fashion Style</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Suporte excepcional! Sempre que precisamos, a equipe está disponível. 
+                        O sistema nunca nos deixou na mão."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                             alt="Foto profissional do gerente de restaurante">
+                        <div class="author-info">
+                            <div class="author-name">Roberto Alves</div>
+                            <div class="author-position">Gerente do Restaurante Sabor & Arte</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "A personalização do sistema atendeu perfeitamente nossas necessidades específicas. 
+                        Recomendo para qualquer farmácia."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                             alt="Foto profissional da farmacêutica">
+                        <div class="author-info">
+                            <div class="author-name">Dra. Patricia Ferreira</div>
+                            <div class="author-position">Farmacêutica Responsável - Farmácia Saúde+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para Revolucionar seu Negócio?</h2>
+                <p class="cta-subtitle">
+                    Entre em contato conosco hoje mesmo e descubra como nossos sistemas PDV 
+                    podem transformar a gestão do seu estabelecimento comercial.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.link/d0o226" class="btn btn-white">
+                        <i class="fas fa-phone"></i>
+                        Solicitar Demonstração
+                    </a>
+                    <a href="https://wa.link/d0o226" class="btn btn-outline-white">
+                        <i class="fas fa-calculator"></i>
+                        Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Entre em <span class="text-primary">Contato</span>
+                </h2>
+                <p class="section-subtitle">
+                    Estamos prontos para atender você. Preencha o formulário abaixo ou utilize nossos canais de contato.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Endereço</h4>
+                                <p>Rua Doca Silveira, S/N<br>Centro, Morrinhos - CE<br>CEP:62550-000</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Telefone</h4>
+                                <p>(88) 9.9723-9082<br></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>E-mail</h4>
+                                <p>suporteinovasys@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda à Sexta: 8h às 18h<br>Sábado: 8h às 12h   <!-- <br>Suporte 20/6 disponível</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+     <!--formulario-->           
+    <div class="contact-form">
+        <h3>Envie sua Mensagem</h3>
+        <form id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Nome *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="schedule">Horário de Agendamento</label>
+                    <input type="datetime-local" id="schedule" name="schedule">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensagem *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                            
+                        </div>
+            <button type="submit" class="btn btn-primary btn-full">
+                Enviar Mensagem
+            </button>
+        </form>
+    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                  <!--  <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-cash-register"></i>
+                        </div>
+                       <span class="logo-text">TechPOS</span> 
+                    </div>  -->
+                    <p class="footer-description">
+                        Aumente a eficiência e reduza custos com nosso sistema de gestão completo! Com ele,
+                        você terá controle total sobre suas operações, desde a gestão de estoque até a análise de desempenho.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/inovasys_sistemas/" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/inovasys_sistemas/" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                      <!--  <a href="https://www.instagram.com/inovasys_sistemas/" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>  -->
+                        <a href="https://wa.link/d0o226" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#equipe">Equipe</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.link/d0o226">Sistema PDV Completo</a></li>
+                        <li><a href="https://wa.link/d0o226">PDV Mobile</a></li>
+                        <li><a href="https://wa.link/d0o226">PDV na Nuvem</a></li>
+                        <li><a href="https://wa.link/d0o226">Personalização</a></li>
+                        <li><a href="https://wa.link/d0o226">Suporte Técnico</a></li>
+                        <li><a href="https://wa.link/d0o226">Treinamento</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 InovaSys. Todos os direitos reservados.</p>
+              <!--  <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">LGPD</a>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="toast-icon fas fa-check-circle"></i>
+            <div class="toast-message">
+                <div class="toast-title">Sucesso!</div>
+                <div class="toast-description">Mensagem enviada com sucesso!</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <!-- Botão Flutuante do WhatsApp -->
+<a href="https://wa.link/d0o226"  target="_blank" class="whatsapp-button" id="whatsappButton">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Toast de Sucesso (opcional) -->
+<div id="toast" class="toast">
+    <div class="toast-content">
+        <i class="toast-icon fas fa-check-circle"></i>
+        <div class="toast-message">
+            <div class="toast-title">Sucesso!</div>
+            <div class="toast-description">Mensagem enviada com sucesso!</div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
